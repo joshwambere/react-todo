@@ -23,6 +23,17 @@ class Home extends Component {
         let i=Items.findIndex(popoutItem=> popoutItem===id);
         Items.splice(i,1)
         this.setState({todos:Items});
+       
+    }
+    todoCompleted(id){
+        const Items = this.state.todos.map(todo => {
+            if (todo.id === id) {
+              todo.completed = !todo.completed;
+            }
+            return todo;
+          });
+        this.setState({todos:Items});
+        console.log(Items);
     }
     render() { 
   
@@ -33,7 +44,7 @@ class Home extends Component {
                 <div className="container">
                     {this.state.todos.map(item=>
                         <div className="todo" key={item.id} >
-                            <input className="todo-input" type="checkbox" name="todo"/>
+                            <input onClick={()=>this.todoCompleted(item.id)} className="todo-input" type="checkbox" name="todo"/>
                             <label className="tod-lable" htmlFor="todo">{item.title}</label>
                             <FontAwesomeIcon className="icon-trash" icon={["fas", "trash"]} onClick={()=>this.popOutTodo(item.id)} />
                         </div>    
