@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
 import AddTodo from './addTodo.jsx';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faTrash)
 
 class Home extends Component {
     state = { 
@@ -11,8 +16,13 @@ class Home extends Component {
         this.setState({todo:e});
         let newArr=this.state.todos;
         newArr.push(e)
-        this.setState({todos:newArr});
-        
+        this.setState({todos:newArr});   
+    }
+    popOutTodo=(id)=>{
+        let Items=this.state.todos;
+        let i=Items.findIndex(popoutItem=> popoutItem===id);
+        Items.splice(i,1)
+        this.setState({todos:Items});
     }
     render() { 
   
@@ -25,6 +35,7 @@ class Home extends Component {
                         <div className="todo" key={item.id} >
                             <input className="todo-input" type="checkbox" name="todo"/>
                             <label className="tod-lable" htmlFor="todo">{item.title}</label>
+                            <FontAwesomeIcon className="icon-trash" icon={["fas", "trash"]} onClick={()=>this.popOutTodo(item.id)} />
                         </div>    
                     )}
                 </div>

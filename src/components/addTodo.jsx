@@ -15,20 +15,24 @@ class addTodo extends Component {
                 <div className="container pt-5">
                     <div className="d-flex input-sect">
                         <input type="text" value={this.state.todo} onChange={this.handleChange} className="form-control addTodoInput" placeholder="Add task"/>
-                        <button onClick={this.addNewTodo} className="btn btn-outline-success btn-rounded">AddTask</button>
+                        <button onClick={this.addNewTodo} className="btn btn-outline-info btn-rounded">AddTask</button>
                     </div>
                 </div>
             </div>
          );
     }
     addNewTodo=()=>{
-        let Todo={
-            id:nextId(),
-            title:this.state.todo,
-            completed:false
+        if(this.state.todo.length===0){
+            console.log('add anything');
+        }else{
+            let Todo={
+                id:nextId(),
+                title:this.state.todo,
+                completed:false
+            }
+            this.props.newTodo(Todo);
+            this.setState({todo:""})
         }
-        this.props.newTodo(Todo);
-        this.setState({todo:""})
     }
 }
  
