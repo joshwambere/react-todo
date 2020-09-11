@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTerminal, faCode, faDatabase, faServer, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(faTerminal,faCode,faDatabase,faServer,faInfoCircle,faUser);
+
 
 class About extends Component {
     state = {  }
@@ -9,14 +14,14 @@ class About extends Component {
                 <div className="container pt-5 d-flex">
                     <h4>Todo list </h4><span className="mt-1 pl-3">V 0.1.0</span> 
                 </div>
-                <div className="pt-2">
-                <span className="pt-3">Infos</span>
-                    <h5 className="pt-1"><b>Backend:</b> Nodejs & Express</h5>
-                    <h5 className="pt-1"><b>Frontend:</b> ReactJs</h5>
-                    <h5 className="pt-1"><b>Database:</b> MongoDb</h5>
-                    <span className="pt-3">API Hosted on https://joh-n-son-react-api.herokuapp.com/</span>
-                    <h5 className="pt-1"><b>More info about API check on :</b> https://github.com/joshwambere/2do</h5>
-                    <h4 className="pt-3"><b>Dev:</b>Johnson</h4>
+                <div className="container pt-2 bg-light p-3" >
+                   <h3 className="pt-2 text-primary">Information</h3>
+                    <h5 className="pt-1"><FontAwesomeIcon className="icons-About" icon={["fas", "terminal"]}/>Nodejs & Express</h5>
+                    <h5 className="pt-1"><FontAwesomeIcon className="icons-About" icon={["fas", "code"]} />ReactJs</h5>
+                    <h5 className="pt-1"><FontAwesomeIcon className="icons-About" icon={["fas", "database"]}/>MongoDb</h5>
+                    <h5 className="pt-1"><FontAwesomeIcon className="icons-About" icon={["fas", "server"]} /><a className="linkss" href="https://joh-n-son-react-api.herokuapp.com/">Heroku</a></h5>
+                    <h5 className="pt-1"><FontAwesomeIcon className="icons-About" icon={["fas", "info-circle"]}/><a className="linkss" href=" https://github.com/joshwambere/2do">Github</a></h5>
+                    <h5 className=""><FontAwesomeIcon className="icons-About" icon={["fas", "user"]} /><a className="linkss" href="https://github.com/joshwambere">Johnson</a></h5>
                 </div>
             </div>
          );

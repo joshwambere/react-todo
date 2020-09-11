@@ -88,3 +88,15 @@
   width: 51px;
   height: 51px;
 }
+.icons-About{
+  color: #42b983;
+  margin-right: 15px;
+}
+.linkss{
+  color: #000;
+}
+.linkss:hover{
+  color: #42b983;
+  cursor: pointer;
+  text-decoration: none;
+}
